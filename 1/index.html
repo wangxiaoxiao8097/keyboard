@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#p1{
+	         width: 200px;
+	         height: 30px;
+	         border-radius:10px;
+}
+.cm{
+	width: 60px;
+	height:30px;
+	border-radius: 50px;
+	margin-left:20px;
+
+}
+#div1{
+	background: orange;
+	width: 200px;
+	height:300px;
+	border:2px solid red;
+}
+input{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	margin: 5px;
+	outline: none;
+}
+	</style>
+	
+	<title>js练习</title>
+</head>
+<body>
+	<input type="text" name="" id="p1"><br>
+	<input type="button" name="" value="清除" class="cm" onclick="cl()">
+	<input type="button" name="" value="重置" class="cm" id="cs" onclick="cz()"><br>
+	<div id="div1"></div>
+
+	
+	<script>
+		var text=document.getElementById('p1');
+		var div1=document.getElementById('div1');
+		var cs=document.getElementById('cs');
+
+		function ys(){
+			var num=[0,1,2,3,4,5,6,7,8,9]
+			var Rans=[]
+			for(var i=0;i<10;i++){
+				var n=Math.floor(Math.random()*(10-i));
+				Rans.push(num[n])
+				num.splice(n,1)
+
+			}
+			return Rans;
+		}
+		function cr(){
+			var ranArr=ys();
+			var btnArr=[];
+			for(var i=0;i<ranArr.length;i++){
+				var btn=document.createElement('input');
+				btn.setAttribute('type','button')
+				btn.value=ranArr[i];
+				btn.onclick=btnClick
+				btnArr.push(btn)
+				div1.appendChild(btn)
+			}
+
+		}
+		cr()
+
+		function btnClick(){
+			text.value+=this.value
+
+		}
+		function cl(){
+			text.value=''
+
+		}
+		function cz(){
+			window.location.reload()
+		}
+		
+		
+		
+
+	 
+	
+
+	
+	</script>
+
+</body>
+</html>
